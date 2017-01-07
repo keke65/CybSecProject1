@@ -3,6 +3,7 @@ Cyber Security Base - Course Project I
 
 Forewords
 The project site is based on the starter code provided on Github at https://github.com/cybersecuritybase/cybersecuritybase-project. The project can be run with the NetBeans as were the earlier projects during the cyber security base course. 
+
 1. CSRF Attack
 The following CSRF attack test is made using Burp Suite free edition v.1.7.15 (toolkit for web application security testing). Because this tool was used earlier during the course the tutorial of using it is not discussed here. The support and information about the tool can be found at portswigger.net. We assume that the project is running at localhost:8080
 Issue: CSRF Attack
@@ -19,6 +20,7 @@ The CSRF token is needed to secure the application form against Cross Site Reque
 The template source project using Spring framework has CSRF protection and CSRF tokens enabled by default. This is however possible to disable with parameter: "http.csrf().disable();" in Java Configuration. This kind of configuration can be a result of poor security implementation, malicious coder or just irresponsible developer who just left it there. 
 With Spring framework the fix is simple because of the default CSRF protection. In order to restore the protection the parameter: "http.csrf().disable();" has to be removed from the SecurityConfiguration.java.
  
+ 
 2. Security Misconfiguration
 This Attack is made using Mozilla Firefox 50.1.0. We assume that the project is running at localhost:8080
 Issue: Security Misconfiguration
@@ -30,6 +32,8 @@ Steps to reproduce:
 5. You know now that the admin page is localhost:8080/admin
 
 The project has security misconfiguration. There is unnecessary link that leads to an erropage where an evil attacker can collect sensitive information about the web application and the structure of it. This kind of vulnerability can for example be due to legacy code, bad coding or jus irresponsible development. Error handling is one of the sections that hackers can misuse and needs to be handled correctly without providing any unnecessary information. Periodic scans and audits are needed to help detect this kind of vulnerabilities. Fix for this vulnerability is an ErrorPage without sensitive data.
+
+
 3. Missing Function Level Access Control
 This Attack is made using Mozilla Firefox 50.1.0. We assume that the project is running at localhost:8080
 Issue: Missing Function Level Access Control
@@ -40,6 +44,8 @@ Steps to reproduce:
 4. You can now access to a page only for administrators and view sensitive data
 
 The project has a flaw with missing function level access control which an evil attacker can use to grant access to view sensitive data. This flaw can be fixed for example by authenticating the admins that are trying to view the /admin page.
+
+
 4. Sensitive Data Exposure
 This Attack is made using Mozilla Firefox 50.1.0. We assume that the project is running at localhost:8080 The attack goes along with the previous one. When going to the /admin page you can see all the information in clear text that users have sent to the application form.
 Issue: Sensitive Data Exposure
@@ -54,6 +60,8 @@ Address: TestAddress
 4. You can now view the information that have been sent to the application form.
 
 If the project application would collect accurate address information with names the data could be misused by malicious users. The sensitive data needs better protection that can be implemented for example with encryption and proper function level access control. 
+
+
 5. Unvalidated Redirect
 The following unvalidated redirect attack test is made using Burp Suite free edition v.1.7.15 (toolkit for web application security testing) and Mozilla Firefox 50.1.0. Because this tool was used earlier during the course the tutorial of using it is not discussed here. The support and information about the tool can be found at portswigger.net
 Issue: Unvalidated Redirect
