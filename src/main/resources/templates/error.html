@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Error Page</title>
+      
+             
+    </head>
+    <body>
+
+        <h1>This is Error Page</h1>    
+        <p>You received an error page please go back</p>
+        <p>If you are admin go to the /admin page</p>    
+        <p>You can also redirect to Google</p>   
+        
+        <form action="#" th:action="@{/redirect}" method="GET" >
+        <input type="text" name="url" value="www.google.com" id="url"/>
+        <input type="submit" value="Go to Google" />
+        </form> 
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>
